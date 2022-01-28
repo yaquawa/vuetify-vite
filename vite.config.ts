@@ -10,29 +10,14 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 export default defineConfig({
   resolve: {
     alias: {
-      vue: "@vue/compat",
       "@": path.resolve(__dirname, "src"),
     },
   },
   define: { "process.env": {} },
   plugins: [
-    vue({
-      template: {
-        compilerOptions: {
-          compatConfig: {
-            MODE: 2,
-          },
-        },
-      },
-    }),
+    vue(),
     vuetify({
       autoImport: true,
-    }),
-    AutoImport({
-      resolvers: [ElementPlusResolver()],
-    }),
-    Components({
-      resolvers: [ElementPlusResolver()],
     }),
   ],
 });
